@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Lanjutan</title>
+  </head>
+  <body>
+    <h1><u>ARROW FUNCTION</u></h1>
+    <hr />
+    <p>Contoh 1 :</p>
+    <pre>
+      // 1 parameter, tidak perlu kurung diparameter (), tidak perlu return dan kurung kurawal
+      // (implisit return)
+      let tampilNama = (nama) => `Halo ${nama}`;
+      console.log(tampilNama('Rio'));
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      // 1 parameter, tidak perlu kurung diparameter (), tidak perlu return dan kurung kurawal
+      // (implisit return)
+      let tampilNama = (nama) => `Halo ${nama}`;
+      console.log(tampilNama('Rio'));
+    </script>
+    <hr />
+    <p>Contoh 2 :</p>
+    <pre>
+      // tampilkan dalam bentuk array
+      let car = ['Toyota', 'Mistubishi', 'Suzuki', 'Honda'];
+
+      let arrLength = car.map((merk) => merk.length);
+      console.log(arrLength);
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      // tampilkan dalam bentuk array
+      let car = ['Toyota', 'Mistubishi', 'Suzuki', 'Honda'];
+
+      let arrLength = car.map((merk) => merk.length);
+      console.log(arrLength);
+    </script>
+    <hr />
+    <p>Contoh 3</p>
+    <pre>
+      // tampil dalam bentuk objek
+      let handphone = ['Nokia', 'Samsung', 'Oppo'];
+
+      let hpLength = handphone.map((brand) => ({ nama: brand, jmlHuruf: brand.length }));
+      console.table(hpLength);
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      // tampil dalam bentuk objek
+      let handphone = ['Nokia', 'Samsung', 'Oppo'];
+
+      let hpLength = handphone.map((brand) => ({ nama: brand, jmlHuruf: brand.length }));
+      console.table(hpLength);
+    </script>
+    <hr />
+    <p>Contoh 4 :</p>
+    <pre>
+      // > 1 parameter
+      let greet = (name, time) => {
+        return `Selamat ${time}, hai ${name}`;
+      };
+      console.log(greet('Evan', 'siang'));
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      // > 1 parameter
+      let greet = (name, time) => {
+        return `Selamat ${time}, hai ${name}`;
+      };
+      console.log(greet('Evan', 'siang'));
+    </script>
+  </body>
+</html>
