@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Lanjutan</title>
+  </head>
+  <body>
+    <h1><u>Execution Context, Hoisting & Scope</u></h1>
+    <hr />
+    <p>Contoh 1 :</p>
+    <pre>
+      let nama = 'Rio Vernando';
+      let username = '@rio__vernando';
+
+      function cetakURL(username) {
+        const instagramURL = 'http://instagram.com/';
+        return instagramURL + username;
+      }
+
+      console.log(cetakURL(username));
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      // let nama = 'Rio Vernando';
+      // let username = '@rio__vernando';
+
+      // function cetakURL(username) {
+      //   const instagramURL = 'http://instagram.com/';
+      //   return instagramURL + username;
+      // }
+
+      // console.log(cetakURL(username));
+    </script>
+    <hr />
+    <p>Contoh 2 :</p>
+    <pre></pre>
+    <p>Output di console browser</p>
+    <script>
+      function satu() {
+        var name = 'Rio Vernando';
+        console.log(name);
+      }
+
+      function dua() {
+        console.log(name);
+      }
+
+      console.log(name);
+      var name = 'Evan';
+      satu();
+      dua('Rival');
+      console.log(name);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Lanjutan</title>
+  </head>
+  <body>
+    <h1><u>CLOSURE</u></h1>
+    <p>Closure adalah fitur khusus dalam JavaScript di mana sebuah fungsi dapat "mengingat" dan mengakses scope di mana ia didefinisikan, bahkan setelah fungsi tersebut dieksekusi.</p>
+    <hr />
+    <p>Contoh 1 :</p>
+    <pre>
+      function init() {
+        let nama = 'Rio'; // local variable
+        function tampilNama() {
+          // inner function (*closure)
+          console.log(nama); // akses ke parent variable
+        }
+        tampilNama();
+      }
+      init();
+
+      // bisa disederhanakan menjadi
+      function person() {
+        return function (nama) {
+          console.log(nama);
+        };
+      }
+      let panggilNama = person();
+      panggilNama('Rio');
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      function person() {
+        return function (nama) {
+          console.log(nama);
+        };
+      }
+      let panggilNama = person();
+      panggilNama('Rio');
+    </script>
+    <hr />
+    <p>Contoh 2 :</p>
+    <pre>
+      // Factory Function => bikin dengan sesuai function yg lain
+      function ucapkanSalam(waktu) {
+        return function (nama) {
+          console.log(`Halo ${nama}, selamat ${waktu} semoga harimu menyenangkan`);
+        };
+      }
+
+      let selamatPagi = ucapkanSalam('Pagi');
+      let selamatSiang = ucapkanSalam('Siang');
+      let selamatMalam = ucapkanSalam('Malam');
+
+      selamatPagi('Rio');
+      selamatMalam('Rival');
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      // Factory Function => bikin dengan sesuai function yg lain
+      function ucapkanSalam(waktu) {
+        return function (nama) {
+          console.log(`Halo ${nama}, selamat ${waktu} semoga harimu menyenangkan`);
+        };
+      }
+
+      let selamatPagi = ucapkanSalam('Pagi');
+      let selamatSiang = ucapkanSalam('Siang');
+      let selamatMalam = ucapkanSalam('Malam');
+
+      selamatPagi('Rio');
+      selamatMalam('Rival');
+    </script>
+    <hr />
+    <p>Contoh 3 :</p>
+    <pre>
+      let add = (function () {
+        let counter = 0; // Private Method
+        return function () {
+          // Closure
+          return ++counter;
+        };
+      })();
+
+      counter = 100;
+
+      console.log(add());
+      console.log(add());
+      console.log(add());
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      let add = (function () {
+        let counter = 0; // Private Method
+        return function () {
+          // Closure
+          return ++counter;
+        };
+      })();
+
+      counter = 100;
+
+      console.log(add());
+      console.log(add());
+      console.log(add());
+    </script>
+    <hr />
+  </body>
+</html>

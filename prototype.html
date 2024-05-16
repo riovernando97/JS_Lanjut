@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Lanjutan</title>
+  </head>
+  <body>
+    <h1><u>OBJECT (revisitted)</u></h1>
+    <h2>Prototype</h2>
+    <hr />
+    <p>Contoh 1 :</p>
+    <pre>
+      // Objek Literal
+      // tidak efektif untuk object yg berjumlah banyak
+      let person = {
+        nama: 'Rio',
+        energi: 10,
+        makan: function (porsi) {
+          this.energi = this.energi + porsi;
+          console.log(`Halo ${this.nama}, selamat makan....energi anda sekarang bertambah menjadi ${this.energi}`);
+        },
+      };
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      // Objek Literal
+      // tidak efektif untuk object yg berjumlah banyak
+      let person = {
+        nama: 'Rio',
+        energi: 10,
+        makan: function (porsi) {
+          this.energi = this.energi + porsi;
+          console.log(`Halo ${this.nama}, selamat makan....energi anda sekarang bertambah menjadi ${this.energi}`);
+        },
+      };
+    </script>
+    <hr />
+    <p>Contoh 2 :</p>
+    <pre>
+     // Objek Function Declaration
+      function Mahasiswa(nama, power) {
+        let mahasiswa = {};
+        mahasiswa.nama = nama;
+        mahasiswa.power = power;
+
+        mahasiswa.makan = function (porsi) {
+          this.power += porsi;
+          console.log(`Halo ${this.nama}, selamat makan...`);
+        };
+
+        mahasiswa.main = function (jam) {
+          this.power -= jam;
+          console.log(`Anda sudah bermain terlalu lama, energimu berkurang...istirahat lah dulu !!!`);
+        };
+        return mahasiswa;
+      }
+      let rio = Mahasiswa('Rio', 10);
+      let evan = Mahasiswa('Evan', 5);
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      // Objek Function Declaration
+      function Mahasiswa(nama, power) {
+        let mahasiswa = {};
+        mahasiswa.nama = nama;
+        mahasiswa.power = power;
+
+        mahasiswa.makan = function (porsi) {
+          this.power += porsi;
+          console.log(`Halo ${this.nama}, selamat makan...`);
+        };
+
+        mahasiswa.main = function (jam) {
+          this.power -= jam;
+          console.log(`Anda sudah bermain terlalu lama, energimu berkurang...istirahat lah dulu !!!`);
+        };
+        return mahasiswa;
+      }
+      let rio = Mahasiswa('Rio', 10);
+      let evan = Mahasiswa('Evan', 5);
+    </script>
+    <hr />
+    <p>Contoh 3</p>
+    <pre>
+      // Object Constructor
+      function operasiAritmatika(a, b) {
+        this.a = a;
+        this.b = b;
+
+        // Pertambahan
+        this.tambah = function () {
+          return this.a + this.b;
+        };
+
+        // Perkalian
+        this.kali = function () {
+          return this.a * this.b;
+        };
+
+        // Pengurangan
+        this.kurang = function () {
+          return this.a - this.b;
+        };
+
+        // Pembagian
+        this.bagi = function () {
+          if (this.b === 0) {
+            return 'tidak bisa membagi dengan 0';
+          } else {
+            return this.a / this.b;
+          }
+        };
+      }
+      let operasi = new operasiAritmatika(15, 4);
+      console.log(`Hasil pertambahan = ${operasi.tambah()}`);
+      console.log(`Hasil perkalian = ${operasi.kali()}`);
+      console.log(`Hasil pengurangan = ${operasi.kurang()}`);
+      console.log(`Hasil pembagian = ${operasi.bagi()}`);
+        
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      // Object Constructor
+      function operasiAritmatika(a, b) {
+        this.a = a;
+        this.b = b;
+
+        // Pertambahan
+        this.tambah = function () {
+          return this.a + this.b;
+          console.log(`Hasil pertambahan = ${operasi.tambah()}`);
+        };
+
+        // Perkalian
+        this.kali = function () {
+          return this.a * this.b;
+          console.log(`Hasil perkalian = ${operasi.kali()}`);
+        };
+
+        // Pengurangan
+        this.kurang = function () {
+          return this.a - this.b;
+          console.log(`Hasil pengurangan = ${operasi.kurang()}`);
+        };
+
+        // Pembagian
+        this.bagi = function () {
+          if (this.b === 0) {
+            return 'tidak bisa membagi dengan 0';
+          } else {
+            return this.a / this.b;
+            console.log(`Hasil pembagian = ${operasi.bagi()}`);
+          }
+        };
+      }
+      let operasi = new operasiAritmatika(15, 4);
+    </script>
+    <hr />
+    <p>Contoh 4 :</p>
+    <pre>
+      // Prototype
+      // constructorFunction.prototype.propertyName = value;
+      // constructorFunction.prototype.methodName = function();
+
+      function Mahasiswa(nama, energi) {
+        this.nama = nama;
+        this.energi = energi;
+      }
+
+      Mahasiswa.prototype.makan = function (porsi) {
+        this.energi += porsi;
+        return `Halo ${this.nama}, selamat makan`;
+      };
+
+      Mahasiswa.prototype.main = function (jam) {
+        this.energi -= jam;
+        return `Halo ${this.nama}, selamat main`;
+      };
+
+      Mahasiswa.prototype.tidur = function (jam) {
+        this.energi += jam * 2;
+        return `Halo ${this.nama}, selamat tidur`;
+      };
+
+      let rival = new Mahasiswa('Rival', 10);
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      // Prototype
+      // constructorFunction.prototype.propertyName = value;
+      // constructorFunction.prototype.methodName = function();
+
+      function Mahasiswa(nama, energi) {
+        this.nama = nama;
+        this.energi = energi;
+      }
+
+      Mahasiswa.prototype.makan = function (porsi) {
+        this.energi += porsi;
+        return `Halo ${this.nama}, selamat makan...energimu bertambah menjadi ${this.energi}`;
+      };
+
+      Mahasiswa.prototype.main = function (jam) {
+        this.energi -= jam;
+        if (this.energi < 0) {
+          return `Halo ${this.nama}, energimu sudah habis`;
+        } else {
+          return `Halo ${this.nama}, selamat main`;
+        }
+      };
+
+      Mahasiswa.prototype.tidur = function (jam) {
+        this.energi += jam * 2;
+        return `Halo ${this.nama}, selamat tidur`;
+      };
+
+      let rival = new Mahasiswa('Rival', 10);
+    </script>
+  </body>
+</html>
