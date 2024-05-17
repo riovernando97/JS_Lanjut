@@ -8,6 +8,10 @@
   </head>
   <body>
     <h1><u>ARROW FUNCTION</u></h1>
+    <p>
+      Arrow function adalah sintaks ringkas untuk mendefinisikan fungsi di JavaScript yang diperkenalkan dalam ECMAScript 6 (ES6). Arrow function menawarkan cara yang lebih pendek untuk menulis fungsi anonim (fungsi tanpa nama) dan
+      memperkenalkan perilaku leksikal untuk this yang berbeda dari fungsi biasa.
+    </p>
     <hr />
     <p>Contoh 1 :</p>
     <pre>
@@ -76,9 +80,29 @@
     </script>
     <hr />
     <p>Contoh 5 :</p>
-    <pre></pre>
-    <script>
+    <p><b>'this' dalam arrow function</b></p>
+    <pre>
       // arrow function (this)
+      function Mhs(nama) {
+        this.nama = nama;
+        this.sapa = () => {
+          console.log(`Halo ${this.nama}`);
+        };
+      }
+
+      const orang = new Mhs('Aling ');
+      orang.sapa();
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      function Mhs(nama) {
+        this.nama = nama;
+        this.sapa = () => {
+          console.log(`Halo ${this.nama}`);
+        };
+      }
+      const orang = new Mhs('Aling ');
+      orang.sapa();
     </script>
   </body>
 </html>

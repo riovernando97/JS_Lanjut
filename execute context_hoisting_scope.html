@@ -8,50 +8,127 @@
   </head>
   <body>
     <h1><u>Execution Context, Hoisting & Scope</u></h1>
+    <dl>
+      <dt>Execution Context</dt>
+      <dd>Execution context adalah lingkungan di mana JavaScript code dieksekusi. Setiap kali kode JavaScript berjalan, execution context dibentuk.</dd>
+      <dt>Hoisting</dt>
+      <dd>
+        Hoisting adalah perilaku JavaScript di mana deklarasi variabel dan fungsi "diangkat" ke bagian atas dari scope mereka sebelum kode dieksekusi. Ini berarti Anda dapat menggunakan variabel dan fungsi sebelum mereka dideklarasikan
+        dalam kode Anda.
+      </dd>
+      <dt>Scope</dt>
+      <dd>
+        Scope adalah konteks aksesibilitas dari variabel dan fungsi di berbagai bagian kode Anda. JavaScript menggunakan scoping berbasis lexical (lexical scoping), yang berarti scope ditentukan oleh lokasi dari variabel dan blok kode di
+        waktu penulisan (bukan di waktu eksekusi). ada beberapa jenis scope yaitu :
+        <ol>
+          <li>Global Scope</li>
+          Variabel yang dideklarasikan di luar fungsi atau blok kode berada dalam global scope dan dapat diakses dari mana saja dalam kode.
+          <li>Function Scope</li>
+          variabel yg dideklarasikan di dalam fungsi hanya dapat diakses di dalam fungsi itu sendiri.
+          <li>Block Scope</li>
+          Variabel yang dideklarasikan dengan let dan const di dalam blok (misalnya, di dalam {}) hanya dapat diakses di dalam blok tersebut. Var tidak memiliki block scope.
+          <li>Lexical Scope</li>
+          Setiap fungsi yang dideklarasikan memiliki akses ke scope di atasnya di tempat di mana fungsi tersebut didefinisikan. Ini memungkinkan konsep closures di JavaScript.
+        </ol>
+      </dd>
+    </dl>
     <hr />
     <p>Contoh 1 :</p>
+    <p>Hoisting</p>
     <pre>
-      let nama = 'Rio Vernando';
-      let username = '@rio__vernando';
+      // Contoh Hoisting
+      // Var: Variabel yang dideklarasikan dengan var dihoist ke bagian atas dari function scope atau global scope mereka, tetapi diinisialisasi  dengan undefined.
+      console.log(x); // undefined
+      var x = 5;
+      console.log(x);
 
-      function cetakURL(username) {
-        const instagramURL = 'http://instagram.com/';
-        return instagramURL + username;
+      // Let dan Const: Variabel yang dideklarasikan dengan let dan const dihoist tetapi tidak diinisialisasi. Ini berarti mereka berada dalam "temporal dead zone" sampai deklarasi dieksekusi.
+      console.log(y); // error access y before inilitialization
+      let y = 10;
+
+      // Hoisting pada fungsi
+      // fungsi deklarasi
+      hoistedFunction(); // fungsi ini di hoisting
+
+      function hoistedFunction() {
+        console.log('Fungsi ini terhoisting!!!');
       }
 
-      console.log(cetakURL(username));
+      // fungsi expresi
+      nonHoistedFunction(); // TypeError: nonHoistedFunction is not a function
+
+      var nonHoistedFunction = function () {
+        console.log('Fungsi ini tidak terhoisting!!!');
+      };
     </pre>
     <p>Output di console browser</p>
     <script>
-      // let nama = 'Rio Vernando';
-      // let username = '@rio__vernando';
+      // Contoh Hoisting
+      // Var: Variabel yang dideklarasikan dengan var dihoist ke bagian atas dari function scope atau global scope mereka, tetapi diinisialisasi  dengan undefined.
+      console.log(x); // undefined
+      var x = 5;
+      console.log(x);
 
-      // function cetakURL(username) {
-      //   const instagramURL = 'http://instagram.com/';
-      //   return instagramURL + username;
-      // }
+      // Let dan Const: Variabel yang dideklarasikan dengan let dan const dihoist tetapi tidak diinisialisasi. Ini berarti mereka berada dalam "temporal dead zone" sampai deklarasi dieksekusi.
+      console.log(y); // error access y before inilitialization
+      let y = 10;
 
-      // console.log(cetakURL(username));
+      // Hoisting pada fungsi
+      // fungsi deklarasi
+      hoistedFunction(); // fungsi ini di hoisting
+
+      function hoistedFunction() {
+        console.log('Fungsi ini terhoisting!!!');
+      }
+
+      // fungsi expresi
+      nonHoistedFunction(); // TypeError: nonHoistedFunction is not a function
+
+      var nonHoistedFunction = function () {
+        console.log('Fungsi ini tidak terhoisting!!!');
+      };
     </script>
     <hr />
     <p>Contoh 2 :</p>
-    <pre></pre>
+    <p>Scope</p>
+    <pre>
+      let globalVar = 'aku global variabel';
+
+      function outerFunction() {
+        let outerVar = 'aku sebuah fungsi variabel luar';
+
+        function innerFunction() {
+          let innerVar = 'aku sebuah fungsi variabel dalam';
+
+          console.log(globalVar); // aku global variabel
+          console.log(outerVar); // aku sebuah fungsi variabel luar
+          console.log(innerVar); // aku sebuah fungsi variabel dalam
+        }
+        innerFunction();
+        console.log(innerVar); // ReferenceError: innerVar is not defined
+      }
+      outerFunction();
+      console.log(outerVar); // ReferenceError: outerVar is not defined
+    </pre>
     <p>Output di console browser</p>
     <script>
-      function satu() {
-        var name = 'Rio Vernando';
-        console.log(name);
-      }
+      let globalVar = 'aku global variabel';
 
-      function dua() {
-        console.log(name);
-      }
+      function outerFunction() {
+        let outerVar = 'aku sebuah fungsi variabel luar';
 
-      console.log(name);
-      var name = 'Evan';
-      satu();
-      dua('Rival');
-      console.log(name);
+        function innerFunction() {
+          let innerVar = 'aku sebuah fungsi variabel dalam';
+
+          console.log(globalVar); // aku global variabel
+          console.log(outerVar); // aku sebuah fungsi variabel luar
+          console.log(innerVar); // aku sebuah fungsi variabel dalam
+        }
+        innerFunction();
+        console.log(innerVar); // ReferenceError: innerVar is not defined
+      }
+      outerFunction();
+      console.log(outerVar); // ReferenceError: outerVar is not defined
     </script>
   </body>
 </html>

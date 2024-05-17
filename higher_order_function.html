@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Lanjutan</title>
+  </head>
+  <body>
+    <h1><u>Higher Order Function</u></h1>
+    <p>
+      Higher order function (HOF) adalah konsep penting dalam JavaScript yang mengacu pada fungsi yang dapat menerima fungsi lain sebagai argumen, mengembalikan fungsi, atau keduanya. Fungsi-fungsi ini memungkinkan cara yang lebih abstrak
+      dan modular dalam menangani kode, yang sering kali membuat kode lebih bersih dan lebih mudah dipahami.
+    </p>
+    <hr />
+    <p>Contoh 1 :</p>
+    <ul>
+      <li>Map</li>
+      Metode map membuat array baru dengan hasil pemanggilan fungsi tertentu pada setiap elemen dalam array pemanggil.
+    </ul>
+    <pre>
+      const arrNum = [2, 4, 6, 8];
+      const kuadrat = arrNum.map((num) => num * num);
+      console.log(kuadrat);
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      const arrNum = [2, 4, 6, 8];
+      const kuadrat = arrNum.map((num) => num * num);
+      console.log(kuadrat);
+    </script>
+    <hr />
+    <p>Contoh 2 :</p>
+    <ul>
+      <li>Filter</li>
+      Metode filter membuat array baru dengan semua elemen yang lulus uji yang disediakan oleh fungsi yang diberikan.
+    </ul>
+    <pre>
+      const angka = [1, 2, 3, 4, 5, 6, 7, 8];
+      const genap = angka.filter((n) => n % 2 === 0);
+      console.log(genap);
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      const angka = [1, 2, 3, 4, 5, 6, 7, 8];
+      const genap = angka.filter((n) => n % 2 === 0);
+      console.log(genap);
+    </script>
+    <hr />
+    <p>Contoh 3 :</p>
+    <ul>
+      <li>Reduce</li>
+      Metode reduce menerapkan fungsi terhadap akumulator dan setiap nilai dari array (dari kiri ke kanan) untuk mengurangkannya menjadi nilai tunggal.
+    </ul>
+    <pre>
+      const angka = [1, 2, 3, 4, 5, 6, 7, 8];
+      const genap = angka.filter((n) => n % 2 === 0);
+      console.log(genap);
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      const num = [1, 2, 3, 4, 5, 6, 7, 8];
+      const sum = num.reduce((total, x) => total + x, 0);
+      console.log(sum);
+    </script>
+    <hr />
+    <p>Contoh 3 :</p>
+    <ul>
+      <li>Fungsi yg mengembalikan fungsi</li>
+    </ul>
+    <pre>
+      function greet(pesan) {
+        return function (name) {
+          console.log(pesan + ', ' + name + '!');
+        };
+      }
+      const sayHello = greet('Hello');
+      sayHello('Rio');
+      sayHello('Rival');
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      function greet(pesan) {
+        return function (name) {
+          console.log(pesan + ', ' + name + '!');
+        };
+      }
+      const sayHello = greet('Hello');
+      sayHello('Rio');
+      sayHello('Rival');
+    </script>
+  </body>
+</html>
