@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Lanjutan</title>
+  </head>
+  <body>
+    <h1><u>Destructuring Assigment</u></h1>
+    <p>
+      Destructuring assignment adalah fitur dalam JavaScript yang memungkinkan Anda untuk mengekstrak nilai dari array atau properti dari objek ke dalam variabel yang berbeda dengan cara yang lebih bersih dan singkat. Ini sangat berguna
+      untuk membuat kode lebih mudah dibaca dan ditulis.
+    </p>
+    <p>Contoh 1 :</p>
+    <ul>
+      <li><b>Destructuring Array</b></li>
+      Dengan destructuring array, Anda bisa mengekstrak nilai dari array ke dalam variabel dengan cara yang mudah.
+    </ul>
+    <pre>
+      const numbers = [1, 2, 3];
+
+      // Destructuring Assigment
+      const [first, second, third] = numbers; // bisa di loncat menggunakan ''
+
+      document.writeln(`${first}`);
+      document.writeln(`${second}`);
+      document.writeln(`${third}`);
+    </pre>
+    <p>Output :</p>
+    <script>
+      const numbers = [1, 2, 3];
+
+      // Destructuring Assigment
+      const [first, second, third] = numbers; // bisa di loncat menggunakan ''
+
+      document.writeln(`<p>${first}</p>`);
+      document.writeln(`<p>${second}</p>`);
+      document.writeln(`<p>${third}</p>`);
+    </script>
+    <hr />
+    <p>Contoh 2 :</p>
+    <ul>
+      <li><b>Swap Items</b></li>
+      Menukar posisi nilai dalam variabel.
+    </ul>
+    <pre>
+      let a = 1;
+      let b = 2;
+      document.write('Before Swap');
+      document.writeln(`${a}`);
+      document.writeln(`${b}`);
+
+      document.write('After Swap');
+      // swapping
+      [a, b] = [b, a];
+      document.writeln(`${a}`);
+      document.writeln(`${b}`);
+    </pre>
+    <p>Output :</p>
+    <script>
+      let a = 1;
+      let b = 2;
+      document.write('<p>Before Swap</p>');
+      document.writeln(`${a}`);
+      document.writeln(`${b}`);
+
+      document.write('<p>After Swap</p>');
+      // swapping
+      [a, b] = [b, a];
+      document.writeln(`${a}`);
+      document.writeln(`${b}`);
+    </script>
+    <hr />
+    <p>Contoh 3 :</p>
+    <ul>
+      <li><b>Destructuring Objek</b></li>
+      Dengan destructuring objek, Anda bisa mengekstrak properti dari objek ke dalam variabel.
+    </ul>
+    <pre>
+      const person = {
+        name: 'Rio Vernando',
+        age: 27,
+        city: 'Nanga Pinoh',
+      };
+
+      // destructuring assigment
+      const { name, age, city } = person;
+
+      document.write(`Name : ${person.name}`);
+      document.write(`Age : ${person.age}`);
+      document.write(`City : ${person.city}`);
+    </pre>
+    <p>Output :</p>
+    <script>
+      const person = {
+        name: 'Rio Vernando',
+        age: 27,
+        city: 'Nanga Pinoh',
+      };
+
+      // destructuring assigment
+      const { name, age, city } = person;
+
+      document.write(`<p>Name : ${person.name}</p>`);
+      document.write(`<p>Age : ${person.age}</p>`);
+      document.write(`<p>City : ${person.city}</p>`);
+    </script>
+    <hr />
+    <p>Contoh 4 :</p>
+    <ul>
+      <li><b>Destructuring Dengan Parameter Fungsi</b></li>
+      Destructuring juga bisa digunakan langsung dalam parameter fungsi untuk mengekstrak nilai dari objek atau array yang diterima oleh fungsi tersebut.
+    </ul>
+    <pre></pre>
+    <p>Output :</p>
+    <script>
+      function cetakBooks({ title, year }) {
+        return document.writeln(`Title : ${title}, Year : ${year}`);
+      }
+      // destructuring
+      const books = {
+        title: 'Programming Science',
+        year: 2024,
+      };
+      cetakBooks(books);
+    </script>
+    <hr />
+  </body>
+</html>

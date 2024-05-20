@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Lanjutan</title>
+  </head>
+  <body>
+    <h1><u>Template Literal</u></h1>
+    <p>
+      Template literal di JavaScript adalah fitur yang diperkenalkan dalam ECMAScript 2015 (ES6) yang memungkinkan penulisan string dengan cara yang lebih mudah dan fleksibel. Template literal menggunakan backticks (`) bukan tanda kutip
+      tunggal (') atau ganda ("), dan memungkinkan penyisipan variabel serta ekspresi langsung di dalam string.
+    </p>
+    <h3>Fitur Utama Template Literal</h3>
+    <ul>
+      <li>Multi-line String (String Multibaris)</li>
+      <li>Embedded Expression (Ekspresi yg disematkan)</li>
+      <li>HTML Fragments (Bagian HTML)</li>
+      <li>Interpolation (Interpolasi)</li>
+      <li>Tagged Template (Template Berpenanda)</li>
+    </ul>
+    <hr />
+    <p>Contoh 1 :</p>
+    <ul>
+      <li>Multi-line String (String Multibaris)</li>
+      Template literal memungkinkan penulisan string yang mencakup beberapa baris tanpa menggunakan karakter khusus seperti \n
+    </ul>
+    <pre>
+      let multiLineString = `
+      ini multi-line string,
+      didalam template literal
+      javascript`;
+      console.log(multiLineString);
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      let multiLineString = `
+      ini multi-line string,
+      didalam template literal
+      javascript`;
+      console.log(multiLineString);
+    </script>
+    <hr />
+    <p>Contoh 2 :</p>
+    <ul>
+      <li>Embedded Expression (Ekspresi yg disematkan)</li>
+      Anda dapat menyisipkan ekspresi JavaScript ke dalam template literal. Ekspresi tersebut akan dievaluasi dan hasilnya akan dimasukkan ke dalam string
+    </ul>
+    <pre>
+      let a = 5;
+      let b = 10;
+
+      let result = `${a} + ${b} = ${a + b}`;
+      console.log(result);
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      let a = 5;
+      let b = 10;
+
+      let result = `${a} + ${b} = ${a + b}`;
+      console.log(result);
+    </script>
+    <hr />
+    <p>Contoh 3 :</p>
+    <ul>
+      <li>HTML Fragments (Bagian HTML)</li>
+      Memungkinkan kita untuk dapat menyisipkan bagian HTML ke dalam template literal ``
+    </ul>
+    <pre>
+      const mhs = {
+        nama: 'Rio Vernando',
+        nim: 145410169,
+      };
+
+      let element = `
+      <div class="mhs">
+        <h2>${mhs.nama}</h2>
+        <span class="nim">${mhs.nim}</span>
+      </div>`;
+      console.log(element);
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      const mhs = {
+        nama: 'Rio Vernando',
+        nim: 145410169,
+      };
+
+      let element = `
+      <div class="mhs">
+        <h2>${mhs.nama}</h2>
+        <span class="nim">${mhs.nim}</span>
+      </div>`;
+      console.log(element);
+    </script>
+    <hr />
+    <p>Contoh 4 :</p>
+    <ul>
+      <li>Interpolation (Interpolasi)</li>
+      Dengan template literal, Anda dapat menyisipkan variabel dan ekspresi langsung ke dalam string menggunakan ${}
+    </ul>
+    <pre>
+      let name = 'Rio';
+      let age = 27;
+
+      let message = `Hello my name is ${name}, i'am ${age} old`;
+      console.log(message);
+
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      let name = 'Rio';
+      let age = 27;
+
+      let message = `Hello my name is ${name}, i'am ${age} old`;
+      console.log(message);
+    </script>
+    <hr />
+    <p>Contoh 5 :</p>
+    <ul>
+      <li>Tagged Template (Template Berpenanda)</li>
+      Template tagged memungkinkan Anda untuk memanggil fungsi dengan literal template sebagai parameter. Ini berguna untuk manipulasi string yang lebih kompleks, seperti sanitasi input atau penerjemahan
+    </ul>
+    <pre>
+      function tag(strings, ...values) {
+        console.log(strings);
+        console.log(values);
+
+        return strings[0] + values[0] + strings[1] + values[1] + strings[2];
+      }
+
+      let person1 = 'Evan';
+      let person2 = 'Noven';
+
+      let taggedResult = tag`Hello ${person1} and ${person2} are friends.`;
+      console.log(taggedResult);
+    </pre>
+    <p>Output di console browser</p>
+    <script>
+      function tag(strings, ...values) {
+        console.log(strings);
+        console.log(values);
+
+        return strings[0] + values[0] + strings[1] + values[1] + strings[2];
+      }
+
+      let person1 = 'Evan';
+      let person2 = 'Noven';
+
+      let taggedResult = tag`Hello ${person1} and ${person2} are friends.`;
+      console.log(taggedResult);
+    </script>
+  </body>
+</html>
