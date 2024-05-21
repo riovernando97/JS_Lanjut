@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Lanjutan</title>
+  </head>
+  <body>
+    <h1><u>For Of vs For In (Loop)</u></h1>
+    <hr />
+    <li>For Of :</li>
+    for...of digunakan untuk mengulangi atau "loop" melalui elemen-elemen dalam sebuah objek yang bisa diiterasi, seperti array, string, Map, Set, dan lainnya. Ini memungkinkan Anda mengakses nilai-nilai langsung, tanpa perlu mengakses
+    indeksnya. Ini lebih mudah dibaca dan digunakan saat Anda hanya membutuhkan nilai tanpa memikirkan indeksnya.
+
+    <ul>
+      <li class="nama">Noven</li>
+      <li class="nama">Aling</li>
+      <li class="nama">Carlo</li>
+    </ul>
+    <pre>
+      // Contoh 1
+      const fruits = ['Apel', 'Banana', 'Orange'];
+
+      for (const fruit of fruits) {
+        document.writeln(`List Fruits : ${fruit}`);
+      }
+
+      // Contoh 2
+      const numbers = [1, 2, 3, 4, 5];
+
+      for (const num of numbers) {
+        if (num % 2 === 0) {
+          document.writeln(`${num} = Genap`);
+        } else {
+          document.writeln(`${num} = Ganjil`);
+        }
+      }
+
+      // Contoh 3
+      const mhs = ['Rio', 'Rival', 'Evan'];
+
+      for (const [i, m] of mhs.entries()) {
+        document.writeln(`${m} adalah mahasiswa ke - ${i + 1}`);
+      }
+
+      // Contoh 5 (Arguments)
+      function jmlAngka() {
+        let jumlah = 0;
+        for (a of arguments) {
+          jumlah += a;
+        }
+        return jumlah;
+      }
+      document.writeln(jmlAngka(1, 2, 3, 4, 5));
+    </pre>
+    <p>Output :</p>
+    <script>
+      // Contoh 1
+      const fruits = ['Apel', 'Banana', 'Orange'];
+
+      for (const fruit of fruits) {
+        document.writeln(`<p>List Fruits : ${fruit}</p>`);
+      }
+
+      // Contoh 2
+      const numbers = [1, 2, 3, 4, 5];
+
+      for (const num of numbers) {
+        if (num % 2 === 0) {
+          document.writeln(`<p>${num} = Genap</p>`);
+        } else {
+          document.writeln(`<p>${num} = Ganjil</p>`);
+        }
+      }
+
+      // Contoh 3 (String)
+      const mhs = ['Rio', 'Rival', 'Evan'];
+
+      for (const [i, m] of mhs.entries()) {
+        document.writeln(`<p>${m} adalah mahasiswa ke - ${i + 1}</p>`);
+      }
+
+      // Contoh 4 (NodeList)
+      const LiNama = document.querySelectorAll('.nama');
+
+      for (const n of LiNama) {
+        document.writeln(`<p>${n.innerHTML}</p>`);
+      }
+
+      // Contoh 5 (Arguments)
+      function jmlAngka() {
+        let jumlah = 0;
+        for (a of arguments) {
+          jumlah += a;
+        }
+        return jumlah;
+      }
+      document.writeln(`Hasil = ${jmlAngka(1, 2, 3, 4, 5)}`);
+    </script>
+    <hr />
+    <li>For In</li>
+    for...in juga digunakan untuk melakukan "loop" melalui properti-properti sebuah objek, namun, ia lebih cocok digunakan untuk objek yang memiliki properti enumerable (dapat dihitung). Ini biasanya digunakan untuk objek JavaScript biasa,
+    bukan untuk array atau tipe data terurut lainnya.
+    <pre>
+      const person = {
+        name: 'Rio Vernando',
+        age: 27,
+        email: 'riojr997@gmail.com',
+      };
+
+      for (const key in person) {
+        document.writeln(`${key}: ${person[key]}`);
+      }
+    </pre>
+    <p>Output :</p>
+    <script>
+      const person = {
+        name: 'Rio Vernando',
+        age: 27,
+        email: 'riojr997@gmail.com',
+      };
+
+      for (const key in person) {
+        document.writeln(`<p>${key}: ${person[key]}</p>`);
+      }
+    </script>
+  </body>
+</html>

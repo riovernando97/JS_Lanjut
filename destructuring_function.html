@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Lanjutan</title>
+  </head>
+  <body>
+    <h1><u>Destructuring Function</u></h1>
+    <p>
+      Destructuring function adalah teknik dalam JavaScript yang memungkinkan Anda untuk mengekstrak nilai dari objek atau array langsung sebagai parameter dari fungsi. Ini memungkinkan Anda untuk menyederhanakan sintaksis saat menggunakan
+      objek atau array sebagai argumen, dan memungkinkan Anda untuk langsung mengakses nilai-nilai yang relevan tanpa perlu merujuk ke objek atau array secara langsung di dalam tubuh fungsi.
+    </p>
+    <p>Contoh 1 :</p>
+    <ul>
+      <li><b>Destructuring Objek sebagai Parameter Fungsi</b></li>
+      Anda bisa menggunakan destructuring untuk mengekstrak nilai dari objek sebagai parameter fungsi.
+    </ul>
+    <pre>
+      function printPerson({ name, age, address: { city, street, province } }) {
+        // destructuring
+        document.writeln(`Name : ${name}, Age : ${age}, and i live in ${city}`);
+      }
+
+      const person = {
+        name: 'Rio Vernando',
+        age: 27,
+        address: {
+          city: 'Nanga Pinoh',
+          street: 'Jl. Serundung Permai II',
+          province: 'Kalimantan Barat',
+        },
+      };
+
+      printPerson(person);
+
+      // Contoh lain
+      function tambahKali(a, b) {
+        return [a + b, a * b];
+      }
+
+      const [jumlah, kali] = tambahKali(2, 3); // destructuring
+      document.writeln(`Penjumlahan = ${jumlah}`);
+      document.writeln(`Perkalian = ${kali}`);
+    </pre>
+    <p>Output :</p>
+    <script>
+      function printPerson({ name, age, address: { city, street, province } }) {
+        // destructuring
+        document.writeln(`<p>Name : ${name}, Age : ${age}, and i live in ${city}</p>`);
+      }
+
+      const person = {
+        name: 'Rio Vernando',
+        age: 27,
+        address: {
+          city: 'Nanga Pinoh',
+          street: 'Jl. Serundung Permai II',
+          province: 'Kalimantan Barat',
+        },
+      };
+
+      printPerson(person);
+
+      // Contoh lain
+      function tambahKali(a, b) {
+        return [a + b, a * b];
+      }
+
+      const [jumlah, kali] = tambahKali(2, 3); // destructuring
+      document.writeln(`<p>Penjumlahan = ${jumlah}</p>`);
+      document.writeln(`<p>Perkalian = ${kali}</p>`);
+    </script>
+    <hr />
+    <p>Contoh 2 :</p>
+    <ul>
+      <li><b>Destructuring Array sebagai Parameter Fungsi</b></li>
+      Destructuring juga bisa digunakan untuk mengekstrak nilai dari array sebagai parameter fungsi.
+    </ul>
+    <pre>
+      function printCoordinate([x, y]) {
+        document.writeln(`Coordinates : ${x}, ${y}`);
+      }
+
+      const point = [10, 20];
+      printCoordinate(point);
+    </pre>
+    <p>Output :</p>
+    <script>
+      function printCoordinate([x, y]) {
+        document.writeln(`Coordinates : ${x}, ${y}`);
+      }
+
+      const point = [10, 20];
+      printCoordinate(point);
+    </script>
+    <hr />
+    <p>Contoh 3 :</p>
+    <ul>
+      <li><b>Penggunaan Default Values</b></li>
+      Seperti dalam destructuring pada umumnya, Anda juga bisa menyediakan nilai default untuk parameter fungsi yang mungkin tidak ada nilainya.
+    </ul>
+    <pre>
+      function greetUser({ name = 'Guest', age = 30 }) {
+        console.log(`Hello, ${name}! You are ${age} years old.`);
+    }
+    
+    const user = {
+        name: 'Alice'
+    };
+    
+    greetUser(user); // Output: Hello, Alice! You are 30 years old.
+    
+    </pre>
+    <p>Output :</p>
+    <script>
+      function greetUser({ name = 'Guest', age = 30 }) {
+        document.writeln(`Hello, ${name}! You are ${age} years old.`);
+      }
+
+      const user = {
+        name: 'Alice',
+      };
+
+      greetUser(user); // Output: Hello, Alice! You are 30 years old.
+    </script>
+  </body>
+</html>

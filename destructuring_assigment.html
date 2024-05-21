@@ -37,6 +37,11 @@
       document.writeln(`<p>${first}</p>`);
       document.writeln(`<p>${second}</p>`);
       document.writeln(`<p>${third}</p>`);
+
+      // Rest Parameter
+      const [k, ...values] = [1, 2, 3, 4, 5];
+      console.log(k);
+      console.log(values);
     </script>
     <hr />
     <p>Contoh 2 :</p>
