@@ -57,28 +57,28 @@
     <p>Output :</p>
     <script>
       // Contoh 1
-      const fruits = ['Apel', 'Banana', 'Orange'];
+      const fruits = ['Apel', 'Pisang', 'Semangka', 'Melon'];
 
       for (const fruit of fruits) {
-        document.writeln(`<p>List Fruits : ${fruit}</p>`);
+        document.writeln(`<p>${fruit}</p>`);
       }
 
       // Contoh 2
       const numbers = [1, 2, 3, 4, 5];
 
-      for (const num of numbers) {
+      for (num of numbers) {
         if (num % 2 === 0) {
           document.writeln(`<p>${num} = Genap</p>`);
         } else {
-          document.writeln(`<p>${num} = Ganjil</p>`);
+          document.writeln(`<p>${num} = Ganjil`);
         }
       }
 
       // Contoh 3 (String)
-      const mhs = ['Rio', 'Rival', 'Evan'];
+      const mhs = ['Rio', 'Evan', 'Rival'];
 
       for (const [i, m] of mhs.entries()) {
-        document.writeln(`<p>${m} adalah mahasiswa ke - ${i + 1}</p>`);
+        document.writeln(`<p>${m} adalah mahasiswa ke - ${i + 1}`);
       }
 
       // Contoh 4 (NodeList)

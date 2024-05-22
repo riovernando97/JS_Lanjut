@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Lanjutan</title>
+  </head>
+  <body>
+    <h1><u>Asynchronous Callback</u></h1>
+    <p>
+      Callback di JavaScript adalah fungsi yang diteruskan sebagai argumen ke fungsi lain, yang kemudian dipanggil di dalam fungsi luar untuk menyelesaikan beberapa jenis rutinitas atau tindakan. Konsep ini memungkinkan kita untuk memiliki
+      kontrol lebih baik atas urutan eksekusi kode, terutama saat bekerja dengan operasi asinkron seperti panggilan API atau penanganan event.
+    </p>
+    <h3>Penggunaan Callback</h3>
+    <p>Callback banyak digunakan dalam banyak skenario seperti :</p>
+    <ul>
+      <li>Event Handling</li>
+      Menangani kejadian (event) seperti klik tombol atau pengisian form.
+      <li>Asynchronous Programming</li>
+      Menangani operasi asinkron seperti pengambilan data dari server (AJAX), setTimeout(), dan setInterval().
+    </ul>
+    <hr />
+    <pre>
+      // Contoh 1 : Callback sederhana
+      function greeting(name) {
+        console.log(`Hello ${name}`);
+      }
+
+      function proccessUserInput(callback) {
+        const name = 'Rio';
+        callback(name);
+      }
+
+      proccessUserInput(greeting);
+
+      // Contoh 2 : Callback dalam operasi Asynchronous
+      console.log('Mulai');
+      setTimeout(function () {
+        console.log('Ini function callback');
+      }, 2000);
+      console.log('Selesai');
+    </pre>
+    <p>Output di console browser :</p>
+    <script>
+      // Contoh 1 : Callback sederhana
+      function greeting(name) {
+        console.log(`Hello ${name}`);
+      }
+
+      function proccessUserInput(callback) {
+        const name = 'Rio';
+        callback(name);
+      }
+
+      proccessUserInput(greeting);
+
+      // Contoh 2 : Callback dalam operasi Asynchronous
+      console.log('Mulai');
+      setTimeout(function () {
+        console.log('Ini function callback');
+      }, 2000);
+      console.log('Selesai');
+    </script>
+    <hr />
+    <li>Callback Hell</li>
+    Ketika callback bersarang terlalu dalam, kita bisa masuk ke dalam situasi yang dikenal sebagai "callback hell" atau "pyramid of doom", di mana kode menjadi sulit dibaca dan dipelihara. Contohnya seperti ini :
+    <pre>
+      doSomething(function(result) {
+        doSomethingElse(result, function(newResult) {
+            doAnotherThing(newResult, function(finalResult) {
+                console.log(finalResult);
+            });
+        });
+    });
+    </pre>
+    Untuk menghindari 'callback hell', beberapa pendekatan dapat digunakan seperti :
+    <dl>
+      <dt>Modularisasi Kode</dt>
+      <dd>Memecah kode menjadi fungsi-fungsi kecil dan terpisah.</dd>
+      <dt>Promises</dt>
+      <dd>Menggunakan 'promise' untuk menangani operasi asinkron dengan cara yg lebih bersih.</dd>
+      <pre>
+        doSomething()
+        .then(result => doSomethingElse(result))
+        .then(newResult => doAnotherThing(newResult))
+        .then(finalResult => console.log(finalResult))
+        .catch(error => console.error(error));
+      </pre>
+      <dt>Async/Await</dt>
+      <dd>Sintaks baru di ES8 yg membuat kode terlihat seperti kode sinkron.</dd>
+      <pre>
+        async function asyncFunction() {
+          try {
+              const result = await doSomething();
+              const newResult = await doSomethingElse(result);
+              const finalResult = await doAnotherThing(newResult);
+              console.log(finalResult);
+          } catch (error) {
+              console.error(error);
+          }
+      }
+      
+      asyncFunction();      
+      </pre>
+    </dl>
+  </body>
+</html>

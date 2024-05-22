@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Lanjutan</title>
+  </head>
+  <body>
+    <h1><u>Spread Operator dan Rest Parameter</u></h1>
+
+    <li>Spread Operator</li>
+    Spread operator digunakan untuk menyebarkan (spread) elemen-elemen dari array atau objek ke dalam konteks yang berbeda, seperti ke dalam array baru atau sebagai argumen untuk fungsi.
+    <hr />
+    <pre>
+      // Contoh 1 : Spread Array
+      const arr1 = [1, 2, 3];
+      const arr2 = [4, 5, 6];
+
+      const combineArr = [...arr1, ...arr2];
+      console.log(combineArr);
+
+      // Contoh 2 : Spread Object
+      const obj1 = { a: 1, b: 2 };
+      const obj2 = { c: 3, d: 4 };
+
+      const combineObj = { ...obj1, ...obj2 };
+      console.log(combineObj);
+
+      // Contoh 3 : Menggabungkan dan Menyusun Objek
+      const user1 = { id: 1, name: 'Rio', role: 'Admin' };
+      const user2 = { id: 2, name: 'Rival', role: 'user', active: true };
+
+      // Menggabungkan 2 objek dengan mengubah beberapa properti
+      const mergedUser = {
+        ...user1,
+        ...user2,
+        role: 'SuperAdmin', // mengubah role dari user2
+        active: user1.active ?? false, // menambahkan properti active dari user1 jika ada, jika tidak ada default ke false
+      };
+
+      console.log(mergedUser);
+
+      // Contoh 4 : Spread dalam function()
+      function kali(a, b, c) {
+        return a * b * c;
+      }
+      const numbers = [2, 4, 5];
+
+      // Menggunakan spread untuk memanggil fungsi
+      const result = kali(...numbers);
+      console.log(result);
+    </pre>
+    <p>Output di console browser :</p>
+    <script>
+      // Contoh 1 : Spread Array
+      const arr1 = [1, 2, 3];
+      const arr2 = [4, 5, 6];
+
+      const combineArr = [...arr1, ...arr2];
+      console.log(combineArr);
+
+      // Contoh 2 : Spread Object
+      const obj1 = { a: 1, b: 2 };
+      const obj2 = { c: 3, d: 4 };
+
+      const combineObj = { ...obj1, ...obj2 };
+      console.log(combineObj);
+
+      // Contoh 3 : Menggabungkan dan Menyusun Objek
+      const user1 = { id: 1, name: 'Rio', role: 'Admin' };
+      const user2 = { id: 2, name: 'Rival', role: 'user', active: true };
+
+      // Menggabungkan 2 objek dengan mengubah beberapa properti
+      const mergedUser = {
+        ...user1,
+        ...user2,
+        role: 'SuperAdmin', // mengubah role dari user2
+        active: user1.active ?? false, // menambahkan properti active dari user1 jika ada, jika tidak ada default ke false
+      };
+
+      console.log(mergedUser);
+
+      // Contoh 4 : Spread dalam function()
+      function kali(a, b, c) {
+        return a * b * c;
+      }
+      const numbers = [2, 4, 5];
+
+      // Menggunakan spread untuk memanggil fungsi
+      const result = kali(...numbers);
+      console.log(result);
+    </script>
+    <hr />
+    <li>Rest Parameter</li>
+    Rest parameter digunakan dalam definisi fungsi untuk mengumpulkan sisa argumen yang tidak disebutkan secara eksplisit menjadi array. Ini sangat berguna ketika kita tidak tahu berapa banyak argumen yang akan diterima fungsi tersebut.
+    <pre>
+      // Contoh 1
+      function sum(...numbers) {
+        return numbers.reduce((acc, curr) => acc + curr);
+      }
+
+      console.log(sum(1, 2, 3));
+      console.log(sum(1, 2, 3, 4, 5));
+
+      // Contoh 2
+      function groupByType(...args) {
+        return args.reduce((acc, curr) => {
+          const type = typeof curr;
+          if (!acc[type]) {
+            acc[type] = [];
+          }
+          acc[type].push(curr);
+          return acc;
+        }, {});
+      }
+
+      const grouped = groupByType(1, 'Hello', true, 29, 'World', false, { key: 'value' });
+      console.log(grouped);
+
+      // Contoh 3
+      function introduce(firstName, lastName, ...hobbies) {
+        const fullName = `${firstName} ${lastName}`;
+        const hobbyList = hobbies.length > 0 ? hobbies.join(', ') : 'No Hobbies';
+        return `${fullName} has hobbies : ${hobbyList}.`;
+      }
+
+      const introduction = introduce('Rio', 'Vernando', 'reading', 'hiking', 'coding');
+
+      console.log(introduction);
+    </pre>
+    <p>Output di console browser :</p>
+    <script>
+      // Contoh 1
+      function sum(...numbers) {
+        return numbers.reduce((acc, curr) => acc + curr);
+      }
+
+      console.log(sum(1, 2, 3));
+      console.log(sum(1, 2, 3, 4, 5));
+
+      // Contoh 2
+      function groupByType(...args) {
+        return args.reduce((acc, curr) => {
+          const type = typeof curr;
+          if (!acc[type]) {
+            acc[type] = [];
+          }
+          acc[type].push(curr);
+          return acc;
+        }, {});
+      }
+
+      const grouped = groupByType(1, 'Hello', true, 29, 'World', false, { key: 'value' });
+      console.log(grouped);
+
+      // Contoh 3
+      function introduce(firstName, lastName, ...hobbies) {
+        const fullName = `${firstName} ${lastName}`;
+        const hobbyList = hobbies.length > 0 ? hobbies.join(', ') : 'No Hobbies';
+        return `${fullName} has hobbies : ${hobbyList}.`;
+      }
+
+      const introduction = introduce('Rio', 'Vernando', 'reading', 'hiking', 'coding');
+
+      console.log(introduction);
+
+      // Contoh 4
+      function tambah(...angka) {
+        let total = 0;
+        for (const a of angka) {
+          total += a;
+        }
+        return total;
+      }
+
+      console.log(tambah(2, 3, 4, 5));
+    </script>
+  </body>
+</html>
