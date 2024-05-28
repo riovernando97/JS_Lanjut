@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Lanjutan</title>
+  </head>
+  <body>
+    <h1><u>PROMISE</u></h1>
+    <p>
+      Promise di JavaScript adalah objek yang mewakili penyelesaian (atau kegagalan) dari operasi asinkron, dan nilainya yang dihasilkan. Promise memungkinkan penanganan kode asinkron dengan cara yang lebih bersih dan terstruktur
+      dibandingkan callback tradisional, menghindari "callback hell"
+    </p>
+    <p>Struktur Dasar Promise</p>
+    Sebuah promise memiliki 3 status utama :
+    <ol>
+      <li>Pending : status awal, belum selesai atau gagal.</li>
+      <li>Fulfilled : operasi selesai dengan sukses.</li>
+      <li>Rejected : operasi gagal.</li>
+    </ol>
+    Promis dapat digunakan dengan metode :
+    <ul>
+      <li>.then(onFulfilled, onRejected) : Menangani hasil jika promise fulfilled atau rejected.</li>
+      <li>.catch(onRejected) : Menangani hasil jika promise rejected.</li>
+      <li>.finally(onFinally) : Menjalankan kode apapun status promise.</li>
+    </ul>
+    Javascript juga menyediakan beberapa metode statis pada objek promise :
+    <ul>
+      <li>Promise.resolve(value) : Mengembalikan promise yang sudah fulfilled dengan nilai tertentu.</li>
+      <li>Promise.reject(reason) : Mengembalikan promise yang sudah rejected dengan alasan tertentu.</li>
+      <li>Promise.all(iterable) : Mengembalikan promise yang selesai ketika semua promises dalam iterable selesai.</li>
+      <li>Promise.race(iterable) : Mengembalikan promise yang selesai atau gagal pertama kali dari iterable.</li>
+    </ul>
+    <hr />
+    <p>Contoh 1 :</p>
+    <pre></pre>
+    <p>Output di console browser</p>
+    <script></script>
+    <hr />
+    <p>Contoh 2 :</p>
+    <pre></pre>
+    <p>Output di console browser</p>
+    <script></script>
+    <hr />
+    <p>Contoh 3 :</p>
+    <pre></pre>
+    <p>Output di console browser</p>
+    <script></script>
+    <hr />
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
